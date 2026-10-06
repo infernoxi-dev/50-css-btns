@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>50 Modern CSS Buttons</title>
+
+<!-- The 50 button styles live in this file -->
+<link rel="stylesheet" href="buttons.css">
+
+<style>
+  /* Preview page layout only */
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; padding: 3rem 1.5rem 4rem; min-height: 100vh;
+    font-family: system-ui, -apple-system, Segoe UI", sans-serif;
+    color: #1e293b;
+    background: #fff;
+  }
+  header { max-width: 1100px; margin: 0 auto 2.5rem; }
+  h1 { margin: 0 0 .4rem; font-size: clamp(1.8rem, 4vw, 2.6rem); }
+  header p { margin: 0; color: #64748b; }
+  .grid { max-width: 1100px; margin: 0 auto; display: grid; gap: 1rem;
+          grid-template-columns: repeat(auto-fill, minmax(190px, 1fr)); }
+  .cell { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 1rem;
+          padding: 1.8rem 1rem 1.2rem; border-radius: 16px; background: #f5f5f5;
+          border: 1px solid #e5e7eb; }
+  .cell code { font-size: .8rem; color: #64748b; }
+
+  /* Buttons that need a specific surface colour */
+  .cell:nth-child(29) { background: #e0e5ec; }   /* light neumorphic */
+  .cell:nth-child(30) { background: #1e2229; }   /* dark neumorphic  */
+  .cell:nth-child(30) code { color: #94a3b8; }
+
+  /* Buttons made for dark backgrounds: 14, 16, 17-25 (see note below) */
+  .cell:is(:nth-child(14), :nth-child(16), :nth-child(n+23):nth-child(-n+25)) { background: #0b1020; }
+  .cell:nth-child(n+17):nth-child(-n+22) { background: linear-gradient(135deg, #7c3aed, #0ea5e9, #db2777); }
+  .cell:is(:nth-child(14), :nth-child(16), :nth-child(n+17):nth-child(-n+25)) code { color: #e2e8f0; }
+</style>
+</head>
+
+<body>
+<header>
+  <h1>50 modern CSS buttons</h1>
+  <p>Hover over each one. Classes <code>.btn-1</code> to <code>.btn-50</code>.</p>
+</header>
+
+<main class="grid">
+  <div class="cell"><button class="btn-1">Button 1</button><code>.btn-1</code></div>
+  <div class="cell"><button class="btn-2">Button 2</button><code>.btn-2</code></div>
+  <div class="cell"><button class="btn-3">Button 3</button><code>.btn-3</code></div>
+  <div class="cell"><button class="btn-4">Button 4</button><code>.btn-4</code></div>
+  <div class="cell"><button class="btn-5">Button 5</button><code>.btn-5</code></div>
+  <div class="cell"><button class="btn-6">Button 6</button><code>.btn-6</code></div>
+  <div class="cell"><button class="btn-7">Button 7</button><code>.btn-7</code></div>
+  <div class="cell"><button class="btn-8">Button 8</button><code>.btn-8</code></div>
+  <div class="cell"><button class="btn-9">Button 9</button><code>.btn-9</code></div>
+  <div class="cell"><button class="btn-10">Button 10</button><code>.btn-10</code></div>
+  <div class="cell"><button class="btn-11">Button 11</button><code>.btn-11</code></div>
+  <div class="cell"><button class="btn-12">Button 12</button><code>.btn-12</code></div>
+  <div class="cell"><button class="btn-13">Button 13</button><code>.btn-13</code></div>
+  <div class="cell"><button class="btn-14">Button 14</button><code>.btn-14</code></div>
+  <div class="cell"><button class="btn-15">Button 15</button><code>.btn-15</code></div>
+  <div class="cell"><button class="btn-16">Button 16</button><code>.btn-16</code></div>
+  <div class="cell"><button class="btn-17">Button 17</button><code>.btn-17</code></div>
+  <div class="cell"><button class="btn-18">Button 18</button><code>.btn-18</code></div>
+  <div class="cell"><button class="btn-19">Button 19</button><code>.btn-19</code></div>
+  <div class="cell"><button class="btn-20">Button 20</button><code>.btn-20</code></div>
+  <div class="cell"><button class="btn-21">Button 21</button><code>.btn-21</code></div>
+  <div class="cell"><button class="btn-22">Button 22</button><code>.btn-22</code></div>
+  <div class="cell"><button class="btn-23">Button 23</button><code>.btn-23</code></div>
+  <div class="cell"><button class="btn-24">Button 24</button><code>.btn-24</code></div>
+  <div class="cell"><button class="btn-25">Button 25</button><code>.btn-25</code></div>
+  <div class="cell"><button class="btn-26">Button 26</button><code>.btn-26</code></div>
+  <div class="cell"><button class="btn-27">Button 27</button><code>.btn-27</code></div>
+  <div class="cell"><button class="btn-28">Button 28</button><code>.btn-28</code></div>
+  <div class="cell"><button class="btn-29">Button 29</button><code>.btn-29</code></div>
+  <div class="cell"><button class="btn-30">Button 30</button><code>.btn-30</code></div>
+  <div class="cell"><button class="btn-31">Button 31</button><code>.btn-31</code></div>
+  <div class="cell"><button class="btn-32">Button 32</button><code>.btn-32</code></div>
+  <div class="cell"><button class="btn-33">Button 33</button><code>.btn-33</code></div>
+  <div class="cell"><button class="btn-34">Button 34</button><code>.btn-34</code></div>
+  <div class="cell"><button class="btn-35">Button 35</button><code>.btn-35</code></div>
+  <div class="cell"><button class="btn-36">Button 36</button><code>.btn-36</code></div>
+  <div class="cell"><button class="btn-37">Button 37</button><code>.btn-37</code></div>
+  <div class="cell"><button class="btn-38">Button 38</button><code>.btn-38</code></div>
+  <div class="cell"><button class="btn-39">Button 39</button><code>.btn-39</code></div>
+  <div class="cell"><button class="btn-40">Button 40</button><code>.btn-40</code></div>
+  <div class="cell"><button class="btn-41">Button 41</button><code>.btn-41</code></div>
+  <div class="cell"><button class="btn-42">Button 42</button><code>.btn-42</code></div>
+  <div class="cell"><button class="btn-43">Button 43</button><code>.btn-43</code></div>
+  <div class="cell"><button class="btn-44">Button 44</button><code>.btn-44</code></div>
+  <div class="cell"><button class="btn-45">Button 45</button><code>.btn-45</code></div>
+  <div class="cell"><button class="btn-46">Button 46</button><code>.btn-46</code></div>
+  <div class="cell"><button class="btn-47">Button 47</button><code>.btn-47</code></div>
+  <div class="cell"><button class="btn-48">Button 48</button><code>.btn-48</code></div>
+  <div class="cell"><button class="btn-49">Button 49</button><code>.btn-49</code></div>
+  <div class="cell"><button class="btn-50">Button 50</button><code>.btn-50</code></div>
+</main>
+</body>
+</html>

@@ -1,0 +1,336 @@
+/* ==========================================================================
+   50 Modern CSS Buttons  ·  .btn-1 → .btn-50  ·  Pure CSS, no JavaScript
+   Usage: <button class="btn-7">Click me</button>   (works on <a> too)
+   Sections:  1 Solid & Gradient  2 Outline & Fill  3 Glass  4 Neon
+              5 Soft/3D/Brutalist 6 Animated borders & glows  7 Playful
+   ========================================================================== */
+ 
+/* Registered properties let the browser animate angles and lengths */
+@property --angle { syntax: "<angle>";  inherits: false; initial-value: 0deg; }
+@property --s     { syntax: "<length>"; inherits: false; initial-value: 12px; }
+ 
+/* ---------- Shared base: every .btn-N inherits this ---------- */
+[class^="btn-"] {
+  position: relative;
+  isolation: isolate;            /* keeps negative z-index pseudo-elements inside */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: .85em 1.8em;
+  font: 600 1rem/1 system-ui, -apple-system, "Segoe UI", sans-serif;
+  color: #fff;
+  background: #334155;
+  border: 0;
+  border-radius: 10px;
+  cursor: pointer;
+  overflow: hidden;
+  text-decoration: none;
+  -webkit-tap-highlight-color: transparent;
+  transition: transform .3s ease, box-shadow .3s ease, background .3s ease,
+              color .3s ease, border-color .3s ease, letter-spacing .3s ease;
+}
+[class^="btn-"]:focus-visible { outline: 3px solid #93c5fd; outline-offset: 3px; }
+[class^="btn-"]:active { transform: scale(.97); }
+ 
+/* ==========================================================================
+   1. SOLID & GRADIENT (1–8)
+   ========================================================================== */
+ 
+/* 1 · Solid indigo, lifts on hover */
+.btn-1 { background: #6366f1; }
+.btn-1:hover { transform: translateY(-3px); box-shadow: 0 10px 20px rgba(99,102,241,.45); }
+ 
+/* 2 · Gradient that slides on hover */
+.btn-2 { background: linear-gradient(90deg,#6366f1,#ec4899,#6366f1); background-size: 200% 100%; }
+.btn-2:hover { background-position: 100% 0; }
+ 
+/* 3 · Sunset gradient, grows */
+.btn-3 { background: linear-gradient(135deg,#f97316,#ef4444 60%,#be185d); border-radius: 999px; }
+.btn-3:hover { transform: scale(1.07); box-shadow: 0 8px 22px rgba(239,68,68,.45); }
+ 
+/* 4 · Ocean gradient with glow */
+.btn-4 { background: linear-gradient(135deg,#06b6d4,#3b82f6); }
+.btn-4:hover { box-shadow: 0 0 24px rgba(6,182,212,.7); transform: translateY(-2px); }
+ 
+/* 5 · Mint-to-lime gradient, text darkens */
+.btn-5 { background: linear-gradient(135deg,#34d399,#a3e635); color: #052e16; }
+.btn-5:hover { filter: saturate(1.3) brightness(1.05); transform: translateY(-2px); }
+ 
+/* 6 · Purple gradient, pill with lifted shadow */
+.btn-6 { background: linear-gradient(120deg,#8b5cf6,#d946ef); border-radius: 999px; box-shadow: 0 4px 12px rgba(139,92,246,.35); }
+.btn-6:hover { box-shadow: 0 12px 26px rgba(217,70,239,.5); transform: translateY(-4px); }
+ 
+/* 7 · Dark button with glowing gradient shadow underneath */
+.btn-7 { background: #0f172a; box-shadow: 0 6px 0 -2px #6366f1; }
+.btn-7:hover { box-shadow: 0 10px 0 -2px #ec4899; transform: translateY(-3px); }
+ 
+/* 8 · Duotone: hard-stop gradient wipes across */
+.btn-8 { background: linear-gradient(90deg,#f97316 50%,#1e293b 50%); background-size: 200% 100%; background-position: 100% 0; }
+.btn-8:hover { background-position: 0 0; }
+ 
+/* ==========================================================================
+   2. OUTLINE & FILL (9–16)
+   ========================================================================== */
+ 
+/* 9 · Outline fills with colour */
+.btn-9 { background: transparent; color: #60a5fa; box-shadow: inset 0 0 0 2px #60a5fa; }
+.btn-9:hover { background: #60a5fa; color: #0b1220; }
+ 
+/* 10 · Outline, fill slides in from the left */
+.btn-10 { color: #34d399; border: 2px solid #34d399;
+  background: linear-gradient(#34d399,#34d399) no-repeat left / 0% 100%; }
+.btn-10:hover { background-size: 100% 100%; color: #022c22; }
+ 
+/* 11 · Fill wipes up from the bottom */
+.btn-11 { background: transparent; color: #fb923c; border: 2px solid #fb923c; }
+.btn-11::before { content: ""; position: absolute; inset: 0; z-index: -1; background: #fb923c;
+  transform: scaleY(0); transform-origin: bottom; transition: transform .35s ease; }
+.btn-11:hover { color: #1c0a00; }
+.btn-11:hover::before { transform: scaleY(1); }
+ 
+/* 12 · Diagonal wipe */
+.btn-12 { background: transparent; color: #f472b6; border: 2px solid #f472b6; }
+.btn-12::before { content: ""; position: absolute; top: 0; left: -10%; width: 120%; height: 100%; z-index: -1;
+  background: #f472b6; transform: translateX(-110%) skewX(-20deg); transition: transform .4s ease; }
+.btn-12:hover { color: #1f0a14; }
+.btn-12:hover::before { transform: translateX(0) skewX(-20deg); }
+ 
+/* 13 · Circle expands from the centre */
+.btn-13 { background: #111827; color: #fff; border: 2px solid #e5e7eb; }
+.btn-13::before { content: ""; position: absolute; left: 50%; top: 50%; width: 0; aspect-ratio: 1; z-index: -1;
+  border-radius: 50%; background: #fff; transform: translate(-50%,-50%); transition: width .5s ease; }
+.btn-13:hover { color: #111827; }
+.btn-13:hover::before { width: 250%; }
+ 
+/* 14 · Underline grows from the centre */
+.btn-14 { background: transparent; border-radius: 0; padding-inline: 1.2em; }
+.btn-14::after { content: ""; position: absolute; left: 50%; bottom: 0; width: 0; height: 2px;
+  background: #22d3ee; transition: width .3s ease, left .3s ease; }
+.btn-14:hover::after { width: 100%; left: 0; }
+ 
+/* 15 · Dashed border turns solid and fills */
+.btn-15 { background: transparent; color: #f472b6; border: 2px dashed #f472b6; }
+.btn-15:hover { border-style: solid; background: #f472b6; color: #1f0a14; }
+ 
+/* 16 · Highlighter: marker swipe behind text */
+.btn-16 { background: linear-gradient(#fde047,#fde047) no-repeat 0 100% / 100% 3px; border-radius: 0; color: #fde047; }
+.btn-16:hover { background-size: 100% 100%; color: #111; }
+ 
+/* ==========================================================================
+   3. GLASSMORPHISM (17–22)  — best on colourful/dark backgrounds
+   ========================================================================== */
+ 
+/* 17 · Light frosted glass */
+.btn-17 { background: rgba(255,255,255,.14); border: 1px solid rgba(255,255,255,.35);
+  backdrop-filter: blur(12px) saturate(160%); -webkit-backdrop-filter: blur(12px) saturate(160%);
+  box-shadow: 0 8px 32px rgba(0,0,0,.25), inset 0 1px 0 rgba(255,255,255,.4); }
+.btn-17:hover { background: rgba(255,255,255,.26); transform: translateY(-3px); }
+ 
+/* 18 · Dark smoked glass */
+.btn-18 { background: rgba(0,0,0,.35); border: 1px solid rgba(255,255,255,.15);
+  backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); border-radius: 14px; }
+.btn-18:hover { background: rgba(0,0,0,.5); border-color: rgba(255,255,255,.4); }
+ 
+/* 19 · Glass with lit top-left edge */
+.btn-19 { background: linear-gradient(135deg,rgba(255,255,255,.25),rgba(255,255,255,.05));
+  border: 1px solid rgba(255,255,255,.1); border-top-color: rgba(255,255,255,.7); border-left-color: rgba(255,255,255,.5);
+  backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border-radius: 16px; }
+.btn-19:hover { background: linear-gradient(135deg,rgba(255,255,255,.35),rgba(255,255,255,.1)); transform: scale(1.04); }
+ 
+/* 20 · Glass pill with shine sweep */
+.btn-20 { background: rgba(255,255,255,.12); border: 1px solid rgba(255,255,255,.3); border-radius: 999px;
+  backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); }
+.btn-20::before { content: ""; position: absolute; top: 0; left: -80%; width: 50%; height: 100%; z-index: -1;
+  background: linear-gradient(90deg,transparent,rgba(255,255,255,.5),transparent); transform: skewX(-25deg); transition: left .6s ease; }
+.btn-20:hover::before { left: 130%; }
+ 
+/* 21 · Tinted glass (blue) */
+.btn-21 { background: rgba(59,130,246,.25); border: 1px solid rgba(147,197,253,.5);
+  backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); box-shadow: 0 0 0 rgba(59,130,246,0); }
+.btn-21:hover { background: rgba(59,130,246,.45); box-shadow: 0 0 24px rgba(59,130,246,.6); }
+ 
+/* 22 · Holographic glass: shifting rainbow tint */
+.btn-22 { background: linear-gradient(120deg,rgba(255,0,150,.45),rgba(0,229,255,.45),rgba(255,230,0,.45),rgba(255,0,150,.45));
+  background-size: 300% 100%; border: 1px solid rgba(255,255,255,.45);
+  backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); text-shadow: 0 1px 4px rgba(0,0,0,.3); }
+.btn-22:hover { background-position: 100% 0; }
+ 
+/* ==========================================================================
+   4. NEON (23–28)  — shared glow driven by the --c colour variable
+   ========================================================================== */
+.btn-23, .btn-24, .btn-25 {
+  background: transparent; color: var(--c); border: 2px solid var(--c);
+  text-shadow: 0 0 8px var(--c);
+  box-shadow: 0 0 8px var(--c), inset 0 0 8px color-mix(in srgb, var(--c) 40%, transparent);
+}
+.btn-23:hover, .btn-24:hover, .btn-25:hover {
+  background: var(--c); color: #020617; text-shadow: none;
+  box-shadow: 0 0 18px var(--c), 0 0 42px var(--c);
+}
+.btn-23 { --c: #22d3ee; }   /* cyan  */
+.btn-24 { --c: #ff2fb9; }   /* pink  */
+.btn-25 { --c: #4ade80; }   /* green */
+ 
+/* 26 · Neon purple, flickers like a tube sign on hover */
+.btn-26 { background: #0b0420; color: #d8b4fe; border: 2px solid #a855f7; box-shadow: 0 0 10px #a855f7; }
+.btn-26:hover { animation: flicker 1s linear infinite; text-shadow: 0 0 10px #d8b4fe; box-shadow: 0 0 24px #a855f7, inset 0 0 12px #a855f7; }
+@keyframes flicker { 0%,19%,21%,23%,100% { opacity: 1; } 20%,22% { opacity: .55; } }
+ 
+/* 27 · Neon yellow, pulsing glow */
+.btn-27 { background: #1a1400; color: #fde047; border: 2px solid #fde047; box-shadow: 0 0 8px #fde047; }
+.btn-27:hover { animation: neon-pulse 1s ease-in-out infinite alternate; }
+@keyframes neon-pulse { from { box-shadow: 0 0 6px #fde047; } to { box-shadow: 0 0 30px #fde047, 0 0 50px #facc15; } }
+ 
+/* 28 · Neon underglow: dark pill with coloured halo */
+.btn-28 { background: #0a0a14; border-radius: 999px; box-shadow: 0 0 0 1px #2dd4bf, 0 0 20px rgba(45,212,191,.5); }
+.btn-28:hover { box-shadow: 0 0 0 2px #2dd4bf, 0 0 40px rgba(45,212,191,.9); letter-spacing: .04em; }
+ 
+/* ==========================================================================
+   5. SOFT, 3D & BRUTALIST (29–38)
+   ========================================================================== */
+ 
+/* 29 · Neumorphic (light) — place on #e0e5ec background */
+.btn-29 { background: #e0e5ec; color: #475569; border-radius: 14px;
+  box-shadow: 6px 6px 12px #a3b1c6, -6px -6px 12px #fff; }
+.btn-29:hover { box-shadow: inset 4px 4px 8px #a3b1c6, inset -4px -4px 8px #fff; }
+ 
+/* 30 · Neumorphic (dark) — place on #1e2229 background */
+.btn-30 { background: #1e2229; color: #94a3b8; border-radius: 14px;
+  box-shadow: 6px 6px 12px #12151a, -6px -6px 12px #2a2f38; }
+.btn-30:hover { box-shadow: inset 4px 4px 8px #12151a, inset -4px -4px 8px #2a2f38; }
+ 
+/* 31 · 3D press (indigo) */
+.btn-31 { background: #6366f1; box-shadow: 0 6px 0 #4338ca; }
+.btn-31:hover { transform: translateY(2px); box-shadow: 0 4px 0 #4338ca; }
+.btn-31:active { transform: translateY(6px); box-shadow: 0 0 0 #4338ca; }
+ 
+/* 32 · 3D press (green) */
+.btn-32 { background: #22c55e; box-shadow: 0 6px 0 #15803d; border-radius: 14px; }
+.btn-32:hover { transform: translateY(2px); box-shadow: 0 4px 0 #15803d; }
+.btn-32:active { transform: translateY(6px); box-shadow: 0 0 0 #15803d; }
+ 
+/* 33 · Brutalist white — place on a light background */
+.btn-33 { background: #fff; color: #111; border: 3px solid #111; border-radius: 0; box-shadow: 5px 5px 0 #111; }
+.btn-33:hover { transform: translate(5px,5px); box-shadow: 0 0 0 #111; }
+ 
+/* 34 · Brutalist lime */
+.btn-34 { background: #a3e635; color: #111; border: 3px solid #111; border-radius: 0; box-shadow: 5px 5px 0 #ec4899; }
+.btn-34:hover { transform: translate(3px,3px); box-shadow: 2px 2px 0 #ec4899; }
+ 
+/* 35 · Retro terminal */
+.btn-35 { background: #facc15; color: #111; font-family: ui-monospace, Menlo, Consolas, monospace;
+  border: 3px solid #111; border-radius: 4px; box-shadow: 4px 4px 0 #f43f5e; }
+.btn-35:hover { transform: translate(2px,2px); box-shadow: 2px 2px 0 #f43f5e; }
+ 
+/* 36 · Glossy blue pill (inset highlights) */
+.btn-36 { background: linear-gradient(#60a5fa,#2563eb); border-radius: 999px;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.55), 0 4px 10px rgba(37,99,235,.4); }
+.btn-36:hover { filter: brightness(1.1); transform: translateY(-2px); }
+ 
+/* 37 · Glossy aqua with top-half sheen */
+.btn-37 { background: linear-gradient(#34d399,#059669); border-radius: 999px; box-shadow: 0 4px 10px rgba(5,150,105,.4); }
+.btn-37::before { content: ""; position: absolute; inset: 0 0 50% 0; z-index: -1;
+  background: linear-gradient(rgba(255,255,255,.45),rgba(255,255,255,.05)); }
+.btn-37:hover { transform: translateY(-2px); box-shadow: 0 10px 20px rgba(5,150,105,.5); }
+ 
+/* 38 · Pastel pink with soft ledge */
+.btn-38 { background: #fbcfe8; color: #831843; border-radius: 14px; box-shadow: 0 4px 0 #f9a8d4; }
+.btn-38:hover { transform: translateY(-3px); box-shadow: 0 7px 0 #f9a8d4; }
+ 
+/* ==========================================================================
+   6. ANIMATED BORDERS & GLOWS (39–44)
+   ========================================================================== */
+ 
+/* 39 · Gradient outline that slides on hover */
+.btn-39 { color: #e0e7ff; border: 2px solid transparent; background-origin: border-box;
+  background-image: linear-gradient(#0b1020,#0b1020), linear-gradient(90deg,#22d3ee,#a855f7,#22d3ee);
+  background-clip: padding-box, border-box; background-size: 100% 100%, 200% 100%; background-position: 0 0, 0 0; }
+.btn-39:hover { background-position: 0 0, 100% 0; box-shadow: 0 0 18px rgba(168,85,247,.45); }
+ 
+/* 40 · Rotating conic-gradient border (spins on hover) */
+.btn-40 { background: transparent; }
+.btn-40::before { content: ""; position: absolute; inset: 0; z-index: -2;
+  background: conic-gradient(from var(--angle),#f0abfc,#38bdf8,#4ade80,#f0abfc);
+  animation: spin-angle 2.5s linear infinite paused; }
+.btn-40::after { content: ""; position: absolute; inset: 2px; z-index: -1; border-radius: 8px; background: #0f172a; }
+.btn-40:hover::before { animation-play-state: running; }
+@keyframes spin-angle { to { --angle: 360deg; } }
+ 
+/* 41 · Blurred gradient halo behind a dark button */
+.btn-41 { background: #0a0a0f; overflow: visible; }
+.btn-41::before { content: ""; position: absolute; inset: -2px; z-index: -2; border-radius: inherit;
+  background: linear-gradient(45deg,#ec4899,#8b5cf6,#06b6d4); filter: blur(10px); opacity: .45; transition: opacity .3s, inset .3s; }
+.btn-41::after { content: ""; position: absolute; inset: 0; z-index: -1; border-radius: inherit; background: #0a0a0f; }
+.btn-41:hover::before { opacity: 1; inset: -4px; }
+ 
+/* 42 · Rainbow halo that cycles hues */
+.btn-42 { background: #0a0a0f; overflow: visible; }
+.btn-42::before { content: ""; position: absolute; inset: -2px; z-index: -2; border-radius: inherit; opacity: 0;
+  background: linear-gradient(90deg,#f43f5e,#f59e0b,#84cc16,#06b6d4,#8b5cf6,#f43f5e); filter: blur(8px); transition: opacity .3s; }
+.btn-42::after { content: ""; position: absolute; inset: 0; z-index: -1; border-radius: inherit; background: #0a0a0f; }
+.btn-42:hover::before { opacity: 1; animation: hue 2s linear infinite; }
+@keyframes hue { to { filter: blur(8px) hue-rotate(360deg); } }
+ 
+/* 43 · Aurora: flowing multi-colour gradient */
+.btn-43 { background: linear-gradient(120deg,#06b6d4,#8b5cf6,#ec4899,#f59e0b,#06b6d4); background-size: 300% 100%;
+  animation: flow 4s linear infinite paused; }
+.btn-43:hover { animation-play-state: running; }
+@keyframes flow { to { background-position: 300% 0; } }
+ 
+/* 44 · Corner brackets that grow into a full frame */
+.btn-44 { --s: 12px; background: transparent; color: #22d3ee; border-radius: 0;
+  background-image:
+    linear-gradient(#22d3ee,#22d3ee), linear-gradient(#22d3ee,#22d3ee),
+    linear-gradient(#22d3ee,#22d3ee), linear-gradient(#22d3ee,#22d3ee),
+    linear-gradient(#22d3ee,#22d3ee), linear-gradient(#22d3ee,#22d3ee),
+    linear-gradient(#22d3ee,#22d3ee), linear-gradient(#22d3ee,#22d3ee);
+  background-repeat: no-repeat;
+  background-position: left top, left top, right top, right top, left bottom, left bottom, right bottom, right bottom;
+  background-size: var(--s) 2px, 2px var(--s), var(--s) 2px, 2px var(--s), var(--s) 2px, 2px var(--s), var(--s) 2px, 2px var(--s);
+  transition: --s .35s ease, color .3s; }
+.btn-44:hover { --s: 51%; color: #fff; }
+ 
+/* ==========================================================================
+   7. PLAYFUL MOTION (45–50)
+   ========================================================================== */
+ 
+/* 45 · Letter-spacing expands */
+.btn-45 { background: #0ea5e9; }
+.btn-45:hover { letter-spacing: .14em; padding-inline: 2.2em; background: #0284c7; }
+ 
+/* 46 · Arrow slides in */
+.btn-46 { background: #111827; border: 1px solid #374151; }
+.btn-46::after { content: "→"; width: 0; margin-left: 0; opacity: 0; transition: width .3s, margin .3s, opacity .3s; }
+.btn-46:hover { border-color: #e5e7eb; }
+.btn-46:hover::after { width: 1em; margin-left: .6em; opacity: 1; }
+ 
+/* 47 · Bracket slide-in */
+.btn-47 { background: transparent; border-radius: 0; padding-inline: 2.2em; color: #fb7185; }
+.btn-47::before, .btn-47::after { position: absolute; opacity: 0; transition: transform .3s, opacity .3s; font-weight: 300; font-size: 1.4em; }
+.btn-47::before { content: "["; left: .6em; transform: translateX(-10px); }
+.btn-47::after  { content: "]"; right: .6em; transform: translateX(10px); }
+.btn-47:hover::before, .btn-47:hover::after { opacity: 1; transform: none; }
+ 
+/* 48 · Pulse ring radiates outward */
+.btn-48 { background: #f43f5e; overflow: visible; }
+.btn-48::after { content: ""; position: absolute; inset: 0; z-index: -1; border-radius: inherit; border: 2px solid #f43f5e; opacity: 0; }
+.btn-48:hover::after { animation: ring 1s ease-out infinite; }
+@keyframes ring { from { transform: scale(1); opacity: .8; } to { transform: scale(1.4, 1.8); opacity: 0; } }
+ 
+/* 49 · Jelly squish */
+.btn-49 { background: linear-gradient(135deg,#a78bfa,#6366f1); border-radius: 999px; }
+.btn-49:hover { animation: jelly .6s; }
+@keyframes jelly {
+  0%, 100% { transform: scale(1); } 30% { transform: scale(1.25,.75); }
+  40% { transform: scale(.75,1.25); } 60% { transform: scale(1.1,.9); } 80% { transform: scale(.97,1.03); }
+}
+ 
+/* 50 · 3D tilt toward the viewer */
+.btn-50 { background: linear-gradient(135deg,#f97316,#db2777); transform: perspective(500px) rotateX(0);
+  transform-origin: 50% 100%; box-shadow: 0 6px 14px rgba(219,39,119,.3); }
+.btn-50:hover { transform: perspective(500px) rotateX(22deg) translateY(-2px); box-shadow: 0 16px 24px rgba(219,39,119,.45); }
+ 
+/* ---------- Accessibility: respect users who prefer less motion ---------- */
+@media (prefers-reduced-motion: reduce) {
+  [class^="btn-"], [class^="btn-"]::before, [class^="btn-"]::after { transition-duration: .01ms !important; animation: none !important; }
+}
